@@ -12,12 +12,11 @@ const UsersController = () => import('#controllers/users_controller')
 import router from '@adonisjs/core/services/router'
 
 router.on('/').renderInertia('home')
-router.on('/signIn').renderInertia('auth/sign_in')
-router.on('/signUp').renderInertia('auth/sign_up')
-
+router.on('/login').renderInertia('auth/login')
+router.on('/register').renderInertia('auth/register')
 router.on('/posts').renderInertia('posts')
 
-// routes API
+// ---------------------API------------------------
 router.get('api/users', [UsersController, 'index'])
 router.post('api/users', [UsersController, 'store'])
 router.get('api/users/:id', [UsersController, 'show'])

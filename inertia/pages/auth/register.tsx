@@ -6,9 +6,9 @@ export default function Home() {
       <Head title="Homepage" />
 
       <div className="container">
-        <div className="title">CADASTRO</div>
+        <div className="title">register</div>
 
-        <span>CADASTRO</span>
+        <span>register</span>
       </div>
     </>
   )
