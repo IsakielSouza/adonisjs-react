@@ -11,17 +11,21 @@ const PostsController = () => import('#controllers/posts_controller')
 const UsersController = () => import('#controllers/users_controller')
 import router from '@adonisjs/core/services/router'
 
-router.on('/').renderInertia('home')
-router.on('/login').renderInertia('auth/login')
-router.on('/register').renderInertia('auth/register')
-router.on('/posts').renderInertia('posts')
+router
+  .group(() => {
+    router.on('/').renderInertia('home')
+    router.on('/login').renderInertia('auth/login')
+    router.on('/register').renderInertia('auth/register')
+    router.on('/posts').renderInertia('posts')
+  })
+  .prefix('/app')
 
 // ---------------------API------------------------
-router.get('api/users', [UsersController, 'index'])
-router.post('api/users', [UsersController, 'store'])
-router.get('api/users/:id', [UsersController, 'show'])
-router.delete('api/users/:id', [UsersController, 'destroy'])
+router.get('users', [UsersController, 'index'])
+router.post('users', [UsersController, 'store'])
+router.get('users/:id', [UsersController, 'show'])
+router.delete('users/:id', [UsersController, 'destroy'])
 
-router.get('api/posts', [PostsController, 'index'])
-router.post('api/posts', [PostsController, 'store'])
-router.get('api/posts/:id', [PostsController, 'show'])
+router.get('posts', [PostsController, 'index'])
+router.post('posts', [PostsController, 'store'])
+router.get('posts/:id', [PostsController, 'show'])
