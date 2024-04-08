@@ -1,5 +1,6 @@
 import factory from '@adonisjs/lucid/factories'
 import Post from '#models/post'
+import { UserFactory } from './user_factory.js'
 
 export const PostFactory = factory
   .define(Post, async ({ faker }) => {
@@ -8,4 +9,5 @@ export const PostFactory = factory
       content: faker.lorem.paragraph(),
     }
   })
+  .relation('users', () => UserFactory)
   .build()
