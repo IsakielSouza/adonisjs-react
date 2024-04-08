@@ -1,10 +1,10 @@
 import Post from '#models/post'
-import { createPostValidator } from '#validators/post'
+import { createPostValidator } from '#validators/posts'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class PostsController {
   async index() {
-    return Post.query().orderBy('id', 'desc')
+    return Post.query().orderBy('createdAt', 'desc')
   }
 
   async store({ request }: HttpContext) {

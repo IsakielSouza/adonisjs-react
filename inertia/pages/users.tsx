@@ -1,14 +1,14 @@
 import { Head } from '@inertiajs/react'
 
-export default function Register() {
+export default function Users() {
   return (
     <>
       <Head title="Homepage" />
 
       <div className="container">
-        <div className="title">Register</div>
+        <div className="title">Users</div>
 
-        <span>Register</span>
+        <span>Users</span>
       </div>
     </>
   )
